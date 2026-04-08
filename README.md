@@ -1,47 +1,56 @@
-# TP1-Frontend
-Trabajo Práctico Grupal - Com. D Grupo 4
-**Enlace al Proyecto Desplegado:** [link Vercel]
+# Trabajo Práctico Grupal 1 - Proyecto Web en Equipo
+**Grupo:** DeveloPET Friendly  
+**Materia:** Proyecto Web  
+**Institución:** IFTS N.°29  
+
+**Enlace al Proyecto Desplegado (Vercel):** [….]
 
 ## Descripción del Proyecto
-[...........]
+Este proyecto es una presentación web colaborativa desarrollada por el equipo "DeveloPET Friendly". El objetivo principal fue crear una portada grupal que integre los perfiles profesionales de cada integrante, manteniendo una estructura de navegación coherente, diseño adaptable (Responsive Design) mediante CSS Grid, y aplicando buenas prácticas de organización de archivos. Se incluye además una sección de Bitácora para documentar las decisiones de diseño y las herramientas utilizadas durante el proceso.
 
 ## Integrantes
-- [Nombre y Apellido del Integrante 1] - [Perfil ](link_a_vercel)
-- [Nombre y Apellido del Integrante 2] - [Perfil ](link_a_vercel)
-- [Nombre y Apellido del Integrante 3] - [Perfil ](link_a_vercel)
-- [Nombre y Apellido del Integrante 4] - [Perfil ](link_a_vercel)
+- Verónica Greco - (LINK)
+- Mailén - (LINK)
+- Braian Perea - (LINK)
+- Guillermo - (LINK)
   
 ## Tecnologías Utilizadas
-- HTML5
-- CSS3
-- JavaScript
+- HTML5 (Semántica estructural)
+- CSS3 (Variables nativas, CSS Grid y Flexbox)
+- JavaScript Vanilla (Interactividad DOM y Modal Lightbox)
 - Google Fonts
 
 ## Estructura de Archivos
-[organizacion de carpetas]
-- `index.html` (Portada) y páginas individuales en el directorio raíz.
-- `/css` - Contiene los archivos de hojas de estilo.
-- `/js` - Contiene los scripts con la lógica dinámica.
-- `/img` - Contiene todas las imágenes, avatares y recursos gráficos.
-- `bitacora.html` - Sección con el registro del proceso de desarrollo del equipo.
+Se respetó el requisito de mantener los archivos HTML en la raíz, separando lógica, estilos y recursos multimedia en subcarpetas:
+- `index.html` (Portada principal).
+- `bitacora.html` (Registro de desarrollo).
+- `veronica.html`, `mailen.html`, `braian.html`, `guillermo.html` (Páginas individuales).
+- `/css` - Contiene la hoja de estilos global unificada (`styles.css`).
+- `/js` - Contiene los scripts con la lógica dinámica de la portada y los perfiles.
+- `/img` - Almacena las fotos de perfil, capturas de proyectos y portadas de discos.
 
 ## Guía de Estilos
-- **Paleta de Colores:** [códigos Hexadecimales. Fondo principal: #F4F4F4, Textos: #333333, Acentos: #007BFF]
-- **Tipografías:** [ fuentes de Google Fonts . link a las fuentes]
-- **Iconografía y Avatares:** [ FontAwesome ??, imágenes generadas con IA para mantener la privacidad]
+- **Paleta de Colores (Basada en Variables CSS):**
+  - Fondo Principal: `#f9f9f9`
+  - Texto Principal: `#333333`
+  - Header y Navbar: `#2c3e50` (Azul Oscuro elegante)
+  - Botones y Acentos: `#3498db` (Azul Claro)
+  - Elementos de contraste (Portafolio): `#e74c3c` (Rojo acento)
+  - *Modo Oscuro:* Fondos en `#121212` y `#1e1e1e` con textos en `#e0e0e0`.
+- **Tipografías:**
+  - `Poppins` (Principal, elegante y redondeada): [Google Fonts - Poppins](https://fonts.google.com/specimen/Poppins)
+  - `Roboto` (Fallback y lectura fluida): [Google Fonts - Roboto](https://fonts.google.com/specimen/Roboto)
+- **Privacidad y Avatares:** Se utilizaron avatares ilustrativos y fotos representativas de mascotas/hobbies para preservar la identidad personal en un repositorio público, tal como lo sugiere la consigna.
 
 ## JavaScript y Funcionalidades Dinámicas
-[ funciones dinámicas implementadas en la portada y en las páginas individuales.  qué hacen y en qué sección se encuentran.]
+Se implementaron funciones en JavaScript puro para mejorar la experiencia de usuario y cumplir con el requisito de interactividad.
 
-- **Función en Portada:** [ qué hace la interacción en el index.html]
-- **Función en Página Individual:** [ qué hace la función en la tarjeta de presentación]
+- **Función en Portada (`index.html` y `bitacora.html`):** Implementamos un "Modo Oscuro" (Dark Mode) global. Al hacer clic en el botón de la cabecera, una función de JS intercala una clase `.dark-mode` en la etiqueta `<body>`, modificando instantáneamente el fondo, los textos y el color de las tarjetas a través de selectores CSS específicos.
 
-> **📸 Capturas de pantalla:** 
-> *[ capturas de pantalla de las funciones de JavaScript operando en la web]*
+> **📸 Capturas de pantalla:** > *[ faltan capturas IMÁGENES.MODO OSCURO A OTRA DEL LIGHTBOX ]*
 
 ## Uso de Inteligencia Artificial (IA)
-- **Herramientas utilizadas:** [ChatGPT, Gemini ]
-- **Uso en Contenido y Código:** [ textos redactados con ayuda de IA y en que lógica de JavaScript o debugging]
-- **Generación de Imágenes:** [ modelo de IA  para crear avatares/ilustraciones y "prompt" para generarlas]
-
----
+- **Herramientas utilizadas:** Google Gemini.
+- **Uso en Contenido y Código:** - **Refactorización CSS:** Se utilizó IA para analizar hojas de estilo distintas (a raíz de la unificación de perfiles) y unificarlas en un único archivo `styles.css`. La IA ayudó a identificar clases duplicadas, agrupar selectores de variables globalesy estandarizar el diseño responsivo (Breakpoints de 900px y 1200px requeridos por el TP).
+  - **Lógica JavaScript:** Gemini asistió en la creación de la lógica para el Modal Lightbox, sugiriendo la mejor forma de iterar sobre una colección de imágenes con `querySelectorAll` y aplicar *Event Listeners* sin necesidad de usar librerías externas.
+- **Generación de Imágenes:** *[........]*.

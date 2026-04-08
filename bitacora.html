@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitácora de Desarrollo - DeveloPET Friendly</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>DeveloPET Friendly 🐾</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="bitacora.html">Bitácora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section bitacora-container">
+            <h2>Diario de Desarrollo del Equipo</h2>
+            <p style="text-align: center; margin-bottom: 30px;">En esta sección documentamos nuestro proceso de trabajo, los obstáculos superados y la evolución del proyecto.</p>
+
+            <article class="bitacora-entry">
+                <h3>📅 [08/04/2026] -🎨 Decisiones de diseño tomadas</h3>
+                <p>Decidimos unificar nuestros perfiles bajo la temática <strong>"DeveloPET Friendly"</strong>, ya que descubrimos que varios integrantes del equipo comparten el amor por los animales. Optamos por un diseño limpio y minimalista. Para la disposición de las tarjetas en la portada, elegimos <strong>CSS Grid</strong> en lugar de Flexbox, porque nos permite controlar con mayor precisión el flujo y evitar tarjetas desalineadas en dispositivos móviles y tablets.</p>
+            </article>
+
+            <article class="bitacora-entry">
+                <h3>📅 [/04/2026] -🚧 Dificultades encontradas y soluciones</h3>
+                <ul>
+                    <li><strong>Dificultad:</strong> Integrar los archivos individuales (con rutas e imágenes diferentes) en una única estructura unificada sin romper los estilos.</li>
+                    <li><strong>Solución:</strong> Refactorizamos el código creando una única hoja de estilos global (`styles.css`). Utilizamos variables CSS nativas para mantener consistencia en los colores de todo el equipo.</li>
+                    <li><strong>Dificultad:</strong> Lograr una navegación fluida evitando el uso del botón "Atrás" del navegador.</li>
+                    <li><strong>Solución:</strong> Implementamos un menú de navegación `nav` global fijo en la cabecera de todas las páginas, enlazando siempre a la portada y la bitácora.</li>
+                </ul>
+            </article>
+
+            <article class="bitacora-entry">
+                <h3>📅 [/04/2026] -🔄 Cambios importantes en la implementación</h3>
+                <p>El cambio estructural más grande fue migrar el código de los perfiles individuales de los integrantes hacia este repositorio, reemplazando los enlaces externos originales por navegación local en el directorio raíz. Además, implementamos herramientas de IA para refactorizar y optimizar nuestro CSS, logrando un código final mucho más limpio y profesional.</p>
+            </article>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DeveloPET Friendly. Proyecto Trabajo Práctico 1.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
