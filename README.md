@@ -1,5 +1,5 @@
 # Trabajo Práctico Grupal 1 - Proyecto Web en Equipo
-**Grupo:** DeveloPET Friendly  
+**Grupo:** DeveloPET Friendly - Grupo 4 Com. D  
 **Materia:** Proyecto Web  
 **Institución:** IFTS N.°29  
 
