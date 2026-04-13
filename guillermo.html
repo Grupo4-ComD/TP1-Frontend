@@ -16,9 +16,9 @@
         </div>
     </header>
 
-    <! -- Barra de navegación principal -- >
-    <nav class="navbar">
-        <ul class="nav-menu">
+    <! -- Barra de navegación principal con botón de modo oscuro -- >
+    <nav class="navbar" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+        <ul class="nav-menu" style="margin: 0;">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="bitacora.html">Bitácora</a></li>
             <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -28,6 +28,7 @@
             <li><a href="#discos">Discos</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
+        <button id="btn-theme" style="margin-left: 20px; padding: 5px 10px; cursor: pointer; border-radius: 4px;">Modo Oscuro</button>
     </nav>
 
     <main>
@@ -207,6 +208,8 @@
         <span class="cerrar-modal">&times;</span>
         <img class="modal-contenido" id="imgAmpliada" alt="Imagen en tamaño completo">
     </div>
+
+    <script src="js/main.js"></script>
 
     <script>
         // Función original de saludo
