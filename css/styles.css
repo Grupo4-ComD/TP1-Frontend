@@ -1852,6 +1852,128 @@ body.dark-mode .card--mailen:focus-within h3::after {
     margin-top: 0;
 }
 
+.roadmap {
+    position: relative;
+    margin: 2.2rem auto 0;
+    padding-left: 2.5rem;
+    display: grid;
+    gap: 1.3rem;
+}
+
+.roadmap::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    bottom: 12px;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.95), rgba(34, 197, 94, 0.9));
+}
+
+.roadmap-step {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 1rem 1rem 1.1rem;
+    cursor: default;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    outline: none;
+}
+
+.roadmap-step::before {
+    content: "";
+    position: absolute;
+    left: -31px;
+    top: 16px;
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 1), rgba(34, 197, 94, 0.95));
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.18), 0 0 0 9px rgba(99, 102, 241, 0.08);
+}
+
+.roadmap-step:hover,
+.roadmap-step:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(99, 102, 241, 0.35);
+    box-shadow: 0 16px 35px rgba(15, 23, 42, 0.14);
+}
+
+.roadmap-date {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 1), rgba(34, 197, 94, 0.95));
+}
+
+.roadmap-title {
+    margin: 0.65rem 0 0;
+    font-size: 1.05rem;
+    color: var(--primary-color);
+}
+
+.roadmap-tooltip {
+    position: absolute;
+    left: calc(100% + 14px);
+    top: 50%;
+    transform: translateY(-50%) translateX(-8px);
+    width: min(360px, 56vw);
+    padding: 0.8rem 0.9rem;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: rgba(255, 255, 255, 0.96);
+    color: #1f2937;
+    font-size: 0.93rem;
+    line-height: 1.4;
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 5;
+}
+
+.roadmap-tooltip::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    transform: translateY(-50%) rotate(45deg);
+    background: rgba(255, 255, 255, 0.96);
+    border-left: 1px solid rgba(15, 23, 42, 0.10);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.10);
+}
+
+.roadmap-step:hover .roadmap-tooltip,
+.roadmap-step:focus-visible .roadmap-tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+body.dark-mode .roadmap-step {
+    border-color: rgba(231, 234, 243, 0.12);
+}
+
+body.dark-mode .roadmap-tooltip {
+    background: rgba(17, 24, 39, 0.96);
+    color: rgba(231, 234, 243, 0.93);
+    border-color: rgba(231, 234, 243, 0.14);
+}
+
+body.dark-mode .roadmap-tooltip::before {
+    background: rgba(17, 24, 39, 0.96);
+    border-left-color: rgba(231, 234, 243, 0.14);
+    border-bottom-color: rgba(231, 234, 243, 0.14);
+}
+
 /* =========================================
    5. PORTAFOLIO INDIVIDUAL (GUILLERMO)
    ========================================= */
