@@ -26,8 +26,14 @@
         <!--Pendientes: Implementar Menú hamburguesa con JS-->
         <nav>
             <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="bitacora.html">Bitácora</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#tarjetas">Proyectos</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#peliculas">Películas y Series</a></li>
+                <li><a href="#discos">Discos</a></li>
+                <li><a href="#mi-manada">Mi manada</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -38,12 +44,15 @@
             <section id="sobre-mi">
                 <h2><img src="img/matraz.png" alt="Icono" class="icono-h2">Sobre mí</h2>
                 <div class="sobre-mi-contenido">
-                    <p>Mi nombre es Verónica, soy bioquímica y me desempeñé siempre en el área industrial, guiada por mi
+
+                    <p>Mi nombre es Verónica, tengo 45 años y resido actualmente en la ciudad de Bahía Blanca. Soy
+                        bioquímica y me desempeñé siempre en el área industrial, guiada por mi
                         interés en la ciencia y la biología. Desde hace tres años me estoy formando en el mundo de la
                         programación mediante cursos y capacitaciones, y actualmente curso el segundo año de la
                         Tecnicatura en Desarrollo de Software. Mi objetivo es fusionar conocimientos científicos y
                         programación para crear soluciones innovadoras que tengan un impacto real y se adapten a las
                         realidades que experimento en mi día a día.</p>
+
                     <img src="img/avatar-vero.jpeg" alt="Imagen de perfil">
                 </div>
             </section>
@@ -55,13 +64,15 @@
                 <div class="tarjetas-container">
                     <div class="tarjeta">
                         <img src="img/proyecto1.jpg" alt="Proyecto 1">
-                        <p><i>Sistema de gestión para laboratorio orientado a reemplazar el uso de Excel, permitiendo
+                        <p><strong>Sistema de gestión para laboratorio</strong><i> orientado a reemplazar el uso de
+                                Excel, permitiendo
                                 controlar stock, registrar resultados, gestionar materias primas y generar informes.
                                 Surge a partir de necesidades reales en un entorno industrial.</i></p>
                     </div>
                     <div class="tarjeta">
                         <img src="img/proyecto2.jpg" alt="Proyecto 2">
-                        <p><i>Aplicación para digitalizar protocolos de laboratorio mediante checklists, permitiendo
+                        <p><strong>Aplicación para digitalizar protocolos de laboratorio</strong><i> mediante
+                                checklists, permitiendo
                                 estandarizar procesos, validar tareas y mejorar la trazabilidad. Orientada a optimizar
                                 la organización y reducir errores en entornos de trabajo controlados.</i></p>
                     </div>
@@ -79,18 +90,6 @@
                 </ul>
             </section>
 
-            <!-- CONTACTO: En esta sección les dejo un formulario para que puedan ponerse en contacto conmigo. -->
-            <!--Pendientes: Validar los datos con JS y enviar correos automáticamente-->
-            <section id="contacto">
-                <h2><img src="img/formulario.png" alt="Icono" class="icono-h2">Contacto</h2>
-                <form>
-                    <label>Nombre:</label><input type="text" name="nombre" required>
-                    <label>Apellido:</label><input type="text" name="apellido" required>
-                    <label>Email:</label><input type="email" name="email" required>
-                    <label>Teléfono:</label><input type="tel" name="telefono">
-                    <button type="submit">Enviar</button>
-                </form>
-            </section>
 
             <!-- PELÍCULAS: Como no soy habitué de ver películas, pero sí series, dejé aquí lo que para mí son las mejores de la historia. -->
             <section id="peliculas">
@@ -117,29 +116,132 @@
                     </div>
                 </div>
             </section>
-        </main>
 
-        <!-- FOOTER: Esta sección contiene los enlaces hacia mis redes sociales -->
-        <!--Pendientes: Añadir enlaces rápidos a otras secciones de la página-->
-        <footer>
-            <p> Mis Redes Sociales</p>
-            <div class="social-icons">
-                <a href="https://instagram.com" target="_blank">
-                    <img src="img/instagram.png" alt="Instagram">
-                </a>
-                <a href="https://outlook.com" target="_blank">
-                    <img src="img/email.png" alt="EMail">
-                </a>
-                <a href="https://github.com" target="_blank">
-                    <img src="img/github.png" alt="GitHub">
-                </a>
-                <a href="https://linkedin.com" target="_blank">
-                    <img src="img/linkedin.png" alt="LinkedIn">
-                </a>
-                <p>&copy; 2026 Verónica Greco. Todos los derechos reservados.</p>
-            </div>
-        </footer>
+
+            <section id="discos">
+                <h2><img src="img/escucha.png" alt="Icono" class="icono-h2">Mis Discos Favoritos</h2>
+                <div class="peliculas-container">
+                    <div class="pelicula">
+                        <img src="img/cultura.png" alt="Disco 1">
+                        <h3>15 aniversario Luna Park</h3>
+                        <p>Cultura Profética</p>
+                    </div>
+                    <div class="pelicula">
+                        <img src="img/crisisLPDA.png" alt="Disco 2">
+                        <h3>Crisis</h3>
+                        <p>Las Pastillas del Abuelo</p>
+                    </div>
+                    <div class="pelicula">
+                        <img src="img/keane.png" alt="Disco 3">
+                        <h3>Hopes and Fears</h3>
+                        <p>Keane</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="mi-manada">
+                <h2><img src="img/huellitas.png" alt="Icono" class="icono-h2">Mi manada</h2>
+                <div class="manada-contenedor">
+                    <div class="mascota">
+                        <img src="img/ema.jpg" alt="Ema">
+                        <p>Ema Dominga</p>
+                    </div>
+
+                    <div class="mascota">
+                        <img src="img/penny.jpg" alt="Penny">
+                        <p>Penny Lane</p>
+                    </div>
+
+                    <div class="mascota">
+                        <img src="img/tommy.jpg" alt="Tommy">
+                        <p>Tommy Lee</p>
+                    </div>
+
+                    <div class="mascota">
+                        <img src="img/robb.jpg" alt="Robb">
+                        <p>Robb Stark</p>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!-- CONTACTO: En esta sección les dejo un formulario para que puedan ponerse en contacto conmigo. -->
+            <!--Pendientes: Validar los datos con JS y enviar correos automáticamente-->
+            <section id="contacto">
+                <h2><img src="img/formulario.png" alt="Icono" class="icono-h2">Contacto</h2>
+                <form>
+                    <label>Nombre:</label><input type="text" name="nombre" required>
+                    <label>Apellido:</label><input type="text" name="apellido" required>
+                    <label>Email:</label><input type="email" name="email" required>
+                    <label>Teléfono:</label><input type="tel" name="telefono">
+                    <button type="submit">Enviar</button>
+                </form>
+            </section>
+
+            <!-- FOOTER: Esta sección contiene los enlaces hacia mis redes sociales -->
+            <!--Pendientes: Añadir enlaces rápidos a otras secciones de la página-->
+            <footer>
+                <p> Mis Redes Sociales</p>
+                <div class="social-icons">
+                    <a href="https://instagram.com" target="_blank">
+                        <img src="img/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://outlook.com" target="_blank">
+                        <img src="img/email.png" alt="EMail">
+                    </a>
+                    <a href="https://github.com" target="_blank">
+                        <img src="img/github.png" alt="GitHub">
+                    </a>
+                    <a href="https://linkedin.com" target="_blank">
+                        <img src="img/linkedin.png" alt="LinkedIn">
+                    </a>
+                    <p>&copy; 2026 Verónica Greco. Todos los derechos reservados.</p>
+                </div>
+            </footer>
+        </main>
     </div>
+
+    <script>
+        const imagenes = document.querySelectorAll("#mi-manada .mascota img");
+
+        imagenes.forEach(img => {
+            img.addEventListener("click", () => {
+                const patita = document.createElement("span");
+                patita.textContent = "🐾";
+
+                patita.classList.add("patita");
+
+                // posición aleatoria dentro de la imagen
+                patita.style.left = Math.random() * 80 + "%";
+                patita.style.top = Math.random() * 80 + "%";
+
+                img.parentElement.appendChild(patita);
+
+                // eliminar después de la animación
+                setTimeout(() => {
+                    patita.remove();
+                }, 1000);
+
+                const nombre = img.nextElementSibling;
+
+                // Latido
+                img.classList.remove("latido");
+                void img.offsetWidth;
+                img.classList.add("latido");
+
+                // Activar color
+                nombre.classList.add("activo");
+
+                // Sacarlo después de un tiempo
+                setTimeout(() => {
+                    nombre.classList.remove("activo");
+                    img.classList.remove("latido");
+                }, 1000); // mismo tiempo que la animación
+            });
+        });
+    </script>
 </body>
 
 </html>
