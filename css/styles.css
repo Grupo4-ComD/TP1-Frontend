@@ -221,6 +221,7 @@ body.page-veronica .sobre-mi-contenido img:hover {
     transform: rotate(360deg);
 }
 
+
 body.page-veronica .sobre-mi-contenido p {
     margin: 0;
     font-size: 1.5rem;
@@ -246,7 +247,7 @@ body.page-veronica .peliculas-container {
 
 body.page-veronica .tarjeta,
 body.page-veronica .pelicula {
-    background-color: #add6cf;
+    background-color: #bfd6d3;
     padding: 2rem;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -292,11 +293,73 @@ body.page-veronica .tarjeta img {
     max-width: 40%;
 }
 
+body.page-veronica #mi-manada .manada-contenedor {
+  display: flex;
+  justify-content: space-around;
+  gap: 1.875rem; 
+  flex-wrap: wrap;
+}
+
+body.page-veronica #mi-manada .mascota {
+  text-align: center;
+  position: relative;
+}
+
+body.page-veronica #mi-manada .mascota img {
+  width: 11rem;
+  height: 14rem;  
+  border-radius: 1rem; /* esquinas suaves */
+}
+
+body.page-veronica #mi-manada .mascota p {
+  margin-top: 0.5rem;
+}
+
+body.page-veronica #mi-manada .mascota img.latido {
+  animation: latido 1s ease;
+  box-shadow: 0 0 20px rgba(13, 212, 73, 0.6);
+}
+
+@keyframes latido {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.patita {
+  position: absolute;
+  font-size: 2.5rem;
+  pointer-events: none;
+  animation: flotar 1s ease forwards;
+  text-shadow: 0 0 8px black;
+  opacity: 1;
+  }
+
+@keyframes flotar {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1.2); /* 👈 arranca más visible */
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) scale(1.5);
+  }
+}
+
 body.page-veronica form {
     display: flex;
     flex-direction: column;
     max-width: 300px;
-    margin-left: 0;
+    margin: 0 auto;
 }
 
 body.page-veronica form input,
@@ -342,6 +405,13 @@ body.page-veronica footer .social-icons a:hover {
 }
 
 @media (max-width: 768px) {
+    body.page-veronica nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px;
+    }
+
     body.page-veronica {
         padding: 10px;
     }
