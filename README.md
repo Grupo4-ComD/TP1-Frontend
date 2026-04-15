@@ -47,7 +47,9 @@ Se implementaron funciones en JavaScript puro para mejorar la experiencia de usu
 
 - **Función en Portada (`index.html` y `bitacora.html`):** Implementamos un "Modo Oscuro" (Dark Mode) global. Al hacer clic en el botón de la cabecera, una función de JS intercala una clase `.dark-mode` en la etiqueta `<body>`, modificando instantáneamente el fondo, los textos y el color de las tarjetas a través de selectores CSS específicos.
 
-> **📸 Capturas de pantalla:** > *[ faltan capturas IMÁGENES.MODO OSCURO A OTRA DEL LIGHTBOX ]*
+>**Capturas de pantalla: 
+![Captura del Modo Oscuro activado](img/captura-oscura.jpg)
+![Captura del Modal Lightbox en el perfil de Guillermo](img/captura-clara.jpg)
 
 ## Uso de Inteligencia Artificial (IA)
 - **Herramientas utilizadas:** Google Gemini. NotebookLM
