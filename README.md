@@ -47,10 +47,12 @@ Se implementaron funciones en JavaScript puro para mejorar la experiencia de usu
 
 - **Función en Portada (`index.html` y `bitacora.html`):** Implementamos un "Modo Oscuro" (Dark Mode) global. Al hacer clic en el botón de la cabecera, una función de JS intercala una clase `.dark-mode` en la etiqueta `<body>`, modificando instantáneamente el fondo, los textos y el color de las tarjetas a través de selectores CSS específicos.
 
-> **📸 Capturas de pantalla:** > *[ faltan capturas IMÁGENES.MODO OSCURO A OTRA DEL LIGHTBOX ]*
+>**Capturas de pantalla: 
+![Captura del Modo Oscuro activado](img/Captura-oscura.jpg)
+![Captura del Modal Lightbox ](img/Captura-clara.jpg)
 
 ## Uso de Inteligencia Artificial (IA)
-- **Herramientas utilizadas:** Google Gemini.
+- **Herramientas utilizadas:** Google Gemini. NotebookLM
 - **Uso en Contenido y Código:** - **Refactorización CSS:** Se utilizó IA para analizar hojas de estilo distintas (a raíz de la unificación de perfiles) y unificarlas en un único archivo `styles.css`. La IA ayudó a identificar clases duplicadas, agrupar selectores de variables globalesy estandarizar el diseño responsivo (Breakpoints de 900px y 1200px requeridos por el TP).
   - **Lógica JavaScript:** Gemini asistió en la creación de la lógica para el Modal Lightbox, sugiriendo la mejor forma de iterar sobre una colección de imágenes con `querySelectorAll` y aplicar *Event Listeners* sin necesidad de usar librerías externas.
-- **Generación de Imágenes:** *[........]*.
+- **Generación de Imágenes:** *[Se utilizó Gemini PRO para la generación de los avatares de los perfiles]*.
