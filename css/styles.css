@@ -111,9 +111,14 @@ body.page-braian .album-carousel {
 
 body.page-braian .album-carousel .carousel-item {
     min-height: clamp(260px, 62vw, 420px);
+}
+
+body.page-braian .album-carousel .album-slide {
+    min-height: clamp(260px, 62vw, 420px);
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 18px 0 78px;
 }
 
 body.page-braian .album-carousel .album-cover {
