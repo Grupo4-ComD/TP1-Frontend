@@ -10,31 +10,33 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <a class="back-home" href="index.html" aria-label="Volver al menú principal">
-        <span class="back-home__icon" aria-hidden="true">←</span>
-        <span class="back-home__text">Inicio</span>
-    </a>
-    <header class="header">
-        <div class="logo">
-            <h1>Portafolio de Guillermo</h1>
-        </div>
+
+<!-- Barra de navegación principal de Guillermo adaptada a celulares -->
+    <header class="navbar" style="padding: 10px 20px; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px;">
+        
+        <!-- Contenedor de links que colapsará en celulares -->
+        <nav id="site-nav">
+            <ul class="nav-menu" style="margin: 0; padding: 0; display: flex; justify-content: center; gap: 15px; list-style: none; flex-wrap: wrap;">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="bitacora.html">Bitácora</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#tarjetas">Proyectos</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#peliculas">Películas</a></li>
+                <li><a href="#discos">Discos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- Botón de Modo Oscuro SIEMPRE visible -->
+        <button id="btn-theme" style="padding: 5px 10px; cursor: pointer; border-radius: 4px;">Modo Oscuro</button>
+
+        <!-- Botón Hamburguesa -->
+        <button id="menu-toggle" aria-label="Abrir menú" style="display: none; background: transparent; border: 1px solid rgba(255,255,255,0.5); border-radius: 5px; padding: 4px 8px; cursor: pointer;">
+            <svg viewBox="0 0 30 30" width="30" height="30"><path stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+        </button>
+
     </header>
-
-    <! -- Barra de navegación principal con botón de modo oscuro -- >
-    <nav class="navbar" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
-        <ul class="nav-menu" style="margin: 0;">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="bitacora.html">Bitácora</a></li>
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#tarjetas">Proyectos</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#peliculas">Películas</a></li>
-            <li><a href="#discos">Discos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-        <button id="btn-theme" style="margin-left: 20px; padding: 5px 10px; cursor: pointer; border-radius: 4px;">Modo Oscuro</button>
-    </nav>
-
     <main>
         <! -- Sección de presentación personal -- >
         <section id="sobre-mi" class="section sobre-mi">

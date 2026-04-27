@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="page-home">
-    <header class="site-header">
+<header class="site-header" style="flex-wrap: wrap;">
         <div class="site-brand">
             <a class="brand" href="index.html" aria-label="Ir al inicio">
                 <img src="img/logodev.jpeg" alt="Logo DeveloPET Friendly">
@@ -18,7 +18,13 @@
             </a>
         </div>
 
-        <nav class="site-nav" aria-label="Navegación principal">
+        <!-- Botón Hamburguesa (Idéntico visualmente al de Bootstrap) -->
+        <button id="menu-toggle" aria-label="Abrir menú" style="display: none; background: transparent; border: 1px solid rgba(15,23,42,0.2); border-radius: 5px; padding: 4px 8px; cursor: pointer; margin-left: auto;">
+            <svg viewBox="0 0 30 30" width="30" height="30"><path stroke="var(--text-color)" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+        </button>
+
+        <!-- Contenedor del menú que colapsará -->
+        <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
             <ul class="site-links">
                 <li><a href="index.html" aria-current="page">Inicio</a></li>
                 <li><a href="bitacora.html">Bitácora</a></li>

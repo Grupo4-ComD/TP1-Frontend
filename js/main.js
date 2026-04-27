@@ -351,3 +351,26 @@ document.addEventListener('click', (event) => {
             }, 5000);
         }
     });
+
+/* =========================================
+   LÓGICA DEL MENÚ HAMBURGUESA (Adaptado para enlaces internos)
+========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('site-nav');
+    const navLinks = document.querySelectorAll('#site-nav a'); // Selecciona todos los enlaces
+
+    if (toggleBtn && navMenu) {
+        // 1. Abrir y cerrar al tocar las 3 rayitas
+        toggleBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // 2. Colapsar (cerrar) el menú automáticamente al tocar cualquier enlace
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+});

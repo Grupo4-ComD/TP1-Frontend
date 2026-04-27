@@ -2510,3 +2510,33 @@ body.dark-mode footer {
         left: -25px;
     }
 }
+
+
+/* =========================================
+   FORZAR MENÚ HAMBURGUESA EN MÓVILES
+========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: space-between !important;
+    }
+    #menu-toggle {
+        display: block !important; 
+    }
+    #site-nav {
+        display: none !important; /* Oculta el menú por defecto en celulares */
+        width: 100%;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    #site-nav.active {
+        display: flex !important; /* Lo muestra cuando JS agrega la clase */
+        justify-content: center;
+    }
+    #site-nav .nav-menu {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        text-align: center;
+    }
+}
