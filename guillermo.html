@@ -11,13 +11,17 @@
 </head>
 <body>
 
-<!-- Barra de navegación principal de Guillermo adaptada a celulares -->
-    <header class="navbar" style="padding: 10px 20px; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px;">
+    <!-- Barra de navegación principal de Guillermo con Título y adaptada a celulares -->
+    <header class="navbar" style="padding: 10px 20px; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
         
-        <!-- Contenedor de links que colapsará en celulares -->
+        
+        <div class="site-brand" style="font-weight: bold; font-size: 1.3rem; color: #ffffff;">
+            Portafolio de Guillermo
+        </div>
+
+        <!-- 2. Contenedor de links que colapsará en celulares (Sin el "Inicio" extra) -->
         <nav id="site-nav">
             <ul class="nav-menu" style="margin: 0; padding: 0; display: flex; justify-content: center; gap: 15px; list-style: none; flex-wrap: wrap;">
-                <li><a href="index.html">Inicio</a></li>
                 <li><a href="bitacora.html">Bitácora</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#tarjetas">Proyectos</a></li>
@@ -28,13 +32,16 @@
             </ul>
         </nav>
 
-        <!-- Botón de Modo Oscuro SIEMPRE visible -->
-        <button id="btn-theme" style="padding: 5px 10px; cursor: pointer; border-radius: 4px;">Modo Oscuro</button>
+        <!-- 3. Botones a la derecha -->
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <!-- Botón de Modo Oscuro SIEMPRE visible -->
+            <button id="btn-theme" style="padding: 5px 10px; cursor: pointer; border-radius: 4px;">Modo Oscuro</button>
 
-        <!-- Botón Hamburguesa -->
-        <button id="menu-toggle" aria-label="Abrir menú" style="display: none; background: transparent; border: 1px solid rgba(255,255,255,0.5); border-radius: 5px; padding: 4px 8px; cursor: pointer;">
-            <svg viewBox="0 0 30 30" width="30" height="30"><path stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg>
-        </button>
+            <!-- Botón Hamburguesa -->
+            <button id="menu-toggle" aria-label="Abrir menú" style="display: none; background: transparent; border: 1px solid rgba(255,255,255,0.5); border-radius: 5px; padding: 4px 8px; cursor: pointer;">
+                <svg viewBox="0 0 30 30" width="30" height="30"><path stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+            </button>
+        </div>
 
     </header>
     <main>
