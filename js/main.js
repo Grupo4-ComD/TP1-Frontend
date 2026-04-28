@@ -209,6 +209,27 @@ document.addEventListener('click', (event) => {
 
 });
 
+/* Menú hamburguesa - MAI */
+const hamburguesa = document.getElementById('nav-hamburguesa');
+const navMenu = document.getElementById('nav-menu-mailen');
+ 
+if (hamburguesa && navMenu) {
+    hamburguesa.addEventListener('click', () => {
+        const abierto = navMenu.classList.toggle('nav-abierto');
+        hamburguesa.setAttribute('aria-expanded', abierto);
+        hamburguesa.textContent = abierto ? '✕' : '☰';
+    });
+ 
+    // Cerrar el menú al hacer click en un link
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('nav-abierto');
+            hamburguesa.setAttribute('aria-expanded', 'false');
+            hamburguesa.textContent = '☰';
+        });
+    });
+}
+
 /* Validación del formulario - MAI */
     document.addEventListener("DOMContentLoaded", () => {
         const form = document.querySelector("#contacto form");
