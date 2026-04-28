@@ -565,7 +565,7 @@ body.page-veronica footer .social-icons a:hover {
 body.page-mailen {
     font-family: "Roboto", sans-serif;
     line-height: 1.6;
-    margin: 10px;
+    margin: 5px;
     color: #e0e0e0;
     background-color: #0b0218;
     background-image: none;
@@ -612,6 +612,13 @@ body.page-mailen nav a {
     box-shadow: none;
     display: inline;
     font-weight: 400;
+}
+
+body.page-mailen .nav-hamburguesa {
+    display: none;
+    background: none;
+    border: none;
+    color: #e0e0e0;
 }
 
 body.page-mailen nav a:hover {
@@ -819,10 +826,35 @@ body.page-mailen section {
 
 @media (max-width: 600px) {
     body.page-mailen nav ul {
-        flex-direction: row;
-        flex-wrap: wrap;
+        display: none;
+        flex-direction: column;
+        align-items: center;
         gap: 10px;
         padding: 10px;
+    }
+
+    body.page-mailen .nav-hamburguesa {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 0.8rem 1rem;
+        width: 100%;
+        text-align: right;
+        transition: color 0.3s ease;
+    }
+
+     
+    body.page-mailen .nav-hamburguesa:hover {
+    color: #9057b9;
+}
+
+    body.page-mailen nav ul.nav-abierto {
+        display: flex;
+    }
+
+    body.page-mailen nav ul li a {
+        display: block;
+        padding: 0.5rem 0;
     }
 
     body.page-mailen .tabla-habilidades th,
@@ -833,8 +865,9 @@ body.page-mailen section {
     }
 
     body.page-mailen .flex-tarjetas-proyectos,
-    body.page-mailen .flex-tarjetas-peliculas {
-        flex-direction: column;
+    body.page-mailen .flex-tarjetas-peliculas, 
+    body.page-mailen .flex-tarjetas-discos {
+        flex-direction: row;
         align-items: center;
         flex-wrap: wrap;
     }
