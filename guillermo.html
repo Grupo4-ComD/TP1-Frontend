@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +18,8 @@
     <!-- Barra de navegación principal de Guillermo con Título y adaptada a celulares -->
     <header class="navbar" style="padding: 10px 20px; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
         
-        
+
+    
         <div class="site-brand" style="font-weight: bold; font-size: 1.3rem; color: #ffffff;">
             Portafolio de Guillermo
         </div>
@@ -217,10 +222,54 @@
     </footer>
 
 
-    <div id="modalImagen" class="modal-lightbox">
-        <span class="cerrar-modal">&times;</span>
-        <img class="modal-contenido" id="imgAmpliada" alt="Imagen en tamaño completo">
-    </div>
+<!-- =======================================================
+         BOTÓN FLOTANTE AISLADO PARA VOLVER A INICIO
+    ======================================================== -->
+    <style>
+        .back-home-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 90;
+            background-color: var(--secondary-color, #6366f1);
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        .back-home-btn:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-color, #0f172a);
+        }
+        @media (max-width: 768px) {
+            .back-home-btn {
+                bottom: 15px;
+                right: 15px;
+                padding: 12px;
+                border-radius: 50%;
+            }
+            .back-home-btn .text {
+                display: none;
+            }
+        }
+        /* Da un margen al final de TU página para que el botón no tape footer */
+        body.page-guillermo {
+            padding-bottom: 80px;
+        }
+    </style>
+
+    <a class="back-home-btn" href="index.html" aria-label="Volver al menú principal">
+        <span aria-hidden="true">←</span>
+        <span class="text">Inicio</span>
+    </a>
+    <!-- ======================================================= -->
+  
+
 
     <script src="js/main.js"></script>
 
@@ -262,5 +311,9 @@
             }
         });
     </script>
+
+
+
+
 </body>
 </html>
