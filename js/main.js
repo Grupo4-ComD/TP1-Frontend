@@ -395,3 +395,45 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (!document.body.classList.contains('page-braian')) return;
+
+    const carousel = document.getElementById('discosCarousel');
+    if (!carousel) return;
+
+    const cards = Array.from(carousel.querySelectorAll('[data-vinyl-card]'));
+    if (!cards.length) return;
+
+    const deactivateAll = () => {
+        cards.forEach((card) => card.classList.remove('is-active'));
+    };
+
+    cards.forEach((card) => {
+        card.addEventListener('pointerenter', () => {
+            card.classList.add('is-active');
+        });
+
+        card.addEventListener('pointerleave', () => {
+            card.classList.remove('is-active');
+        });
+
+        card.addEventListener('click', () => {
+            const willActivate = !card.classList.contains('is-active');
+            deactivateAll();
+            if (willActivate) card.classList.add('is-active');
+        });
+
+        card.addEventListener('keydown', (event) => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            const willActivate = !card.classList.contains('is-active');
+            deactivateAll();
+            if (willActivate) card.classList.add('is-active');
+        });
+    });
+
+    carousel.addEventListener('slide.bs.carousel', () => {
+        deactivateAll();
+    });
+});
