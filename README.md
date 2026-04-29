@@ -59,6 +59,9 @@ Se implementaron funciones en JavaScript puro para mejorar la experiencia de usu
 >**Capturas de pantalla:
 ![Vista del efecto](img/Captura-mimanada.jpeg)
 
+- **Función en braian.html:** En la sección **Discos Favoritos**, se implementó una funcionalidad con JS que permite, al hacer clic o pasar el mouse sobre las portadas de los discos, correr la portada seleccionada, modificar su borde visualmente y activar una animación decorativa de un vinilo girando.
+
+![Vista del efecto](img/discos%20fav%20do%20it.png)
 
 
 
