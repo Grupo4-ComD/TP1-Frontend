@@ -212,14 +212,14 @@ document.addEventListener('click', (event) => {
 /* Menú hamburguesa - MAI */
 const hamburguesa = document.getElementById('nav-hamburguesa');
 const navMenu = document.getElementById('nav-menu-mailen');
- 
+
 if (hamburguesa && navMenu) {
     hamburguesa.addEventListener('click', () => {
         const abierto = navMenu.classList.toggle('nav-abierto');
         hamburguesa.setAttribute('aria-expanded', abierto);
         hamburguesa.textContent = abierto ? '✕' : '☰';
     });
- 
+
     // Cerrar el menú al hacer click en un link
     navMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
@@ -231,147 +231,147 @@ if (hamburguesa && navMenu) {
 }
 
 /* Validación del formulario - MAI */
-    document.addEventListener("DOMContentLoaded", () => {
-        const form = document.querySelector("#contacto form");
-        if (!form) return;
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("#contacto form");
+    if (!form) return;
 
-        function mostrarError(input, mensaje) {
-            input.classList.add("input-error");
-            input.classList.remove("input-ok");
+    function mostrarError(input, mensaje) {
+        input.classList.add("input-error");
+        input.classList.remove("input-ok");
 
-            let error = input.parentElement.querySelector(".msg-error");
-            if (!error) {
-                error = document.createElement("span");
-                error.classList.add("msg-error");
-                input.insertAdjacentElement("afterend", error);
-            }
-            error.textContent = mensaje;
+        let error = input.parentElement.querySelector(".msg-error");
+        if (!error) {
+            error = document.createElement("span");
+            error.classList.add("msg-error");
+            input.insertAdjacentElement("afterend", error);
         }
+        error.textContent = mensaje;
+    }
 
-        function mostrarOk(input) {
-            input.classList.remove("input-error");
-            input.classList.add("input-ok");
+    function mostrarOk(input) {
+        input.classList.remove("input-error");
+        input.classList.add("input-ok");
 
-            const error = input.parentElement.querySelector(".msg-error");
-            if (error) error.remove();
+        const error = input.parentElement.querySelector(".msg-error");
+        if (error) error.remove();
+    }
+
+    function validarNombre(input) {
+        const val = input.value.trim();
+        if (val === "") {
+            mostrarError(input, "Este campo es obligatorio.");
+            return false;
         }
-
-        function validarNombre(input) {
-            const val = input.value.trim();
-            if (val === "") {
-                mostrarError(input, "Este campo es obligatorio.");
-                return false;
-            }
-            if (val.length < 2) {
-                mostrarError(input, "Ingresá al menos 2 caracteres.");
-                return false;
-            }
-            mostrarOk(input);
-            return true;
+        if (val.length < 2) {
+            mostrarError(input, "Ingresá al menos 2 caracteres.");
+            return false;
         }
+        mostrarOk(input);
+        return true;
+    }
 
-        function validarEmail(input) {
-            const val = input.value.trim();
-            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (val === "") {
-                mostrarError(input, "El email es obligatorio.");
-                return false;
-            }
-            if (!regex.test(val)) {
-                mostrarError(input, "Ingresá un email válido (ej: nombre@correo.com).");
-                return false;
-            }
-            mostrarOk(input);
-            return true;
+    function validarEmail(input) {
+        const val = input.value.trim();
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (val === "") {
+            mostrarError(input, "El email es obligatorio.");
+            return false;
         }
-
-        function validarTel(input) {
-            const val = input.value.trim();
-            // Opcional, pero si completa debe tener solo números, espacios, +, -
-            if (val !== "" && !/^[\d\s\+\-]{7,20}$/.test(val)) {
-                mostrarError(input, "Ingresá un teléfono válido (solo números).");
-                return false;
-            }
-            mostrarOk(input);
-            return true;
+        if (!regex.test(val)) {
+            mostrarError(input, "Ingresá un email válido (ej: nombre@correo.com).");
+            return false;
         }
+        mostrarOk(input);
+        return true;
+    }
 
-        function validarMensaje(input) {
-            const val = input.value.trim();
-            if (val === "") {
-                mostrarError(input, "El mensaje no puede estar vacío.");
-                return false;
-            }
-            if (val.length < 10) {
-                mostrarError(input, "El mensaje debe tener al menos 10 caracteres.");
-                return false;
-            }
-            mostrarOk(input);
-            return true;
+    function validarTel(input) {
+        const val = input.value.trim();
+        // Opcional, pero si completa debe tener solo números, espacios, +, -
+        if (val !== "" && !/^[\d\s\+\-]{7,20}$/.test(val)) {
+            mostrarError(input, "Ingresá un teléfono válido (solo números).");
+            return false;
         }
+        mostrarOk(input);
+        return true;
+    }
 
-        /* Validar en tiempo real */
-        const nombre = form.querySelector("#m-nombre");
-        const apellido = form.querySelector("#m-apellido");
-        const email = form.querySelector("#m-email");
-        const tel = form.querySelector("#m-tel");
-        const mensaje = form.querySelector("#m-mensaje");
+    function validarMensaje(input) {
+        const val = input.value.trim();
+        if (val === "") {
+            mostrarError(input, "El mensaje no puede estar vacío.");
+            return false;
+        }
+        if (val.length < 10) {
+            mostrarError(input, "El mensaje debe tener al menos 10 caracteres.");
+            return false;
+        }
+        mostrarOk(input);
+        return true;
+    }
 
-        nombre?.addEventListener("blur", () => validarNombre(nombre));
-        apellido?.addEventListener("blur", () => validarNombre(apellido));
-        email?.addEventListener("blur", () => validarEmail(email));
-        tel?.addEventListener("blur", () => validarTel(tel));
-        mensaje?.addEventListener("blur", () => validarMensaje(mensaje));
+    /* Validar en tiempo real */
+    const nombre = form.querySelector("#m-nombre");
+    const apellido = form.querySelector("#m-apellido");
+    const email = form.querySelector("#m-email");
+    const tel = form.querySelector("#m-tel");
+    const mensaje = form.querySelector("#m-mensaje");
 
-        // Limpiar error mientras el usuario escribe
-        [nombre, apellido, email, tel, mensaje].forEach((campo) => {
-            campo?.addEventListener("input", () => {
-                if (campo.classList.contains("input-error")) {
-                    campo.classList.remove("input-error");
-                    const error = campo.parentElement.querySelector(".msg-error");
-                    if (error) error.remove();
-                }
+    nombre?.addEventListener("blur", () => validarNombre(nombre));
+    apellido?.addEventListener("blur", () => validarNombre(apellido));
+    email?.addEventListener("blur", () => validarEmail(email));
+    tel?.addEventListener("blur", () => validarTel(tel));
+    mensaje?.addEventListener("blur", () => validarMensaje(mensaje));
+
+    // Limpiar error mientras el usuario escribe
+    [nombre, apellido, email, tel, mensaje].forEach((campo) => {
+        campo?.addEventListener("input", () => {
+            if (campo.classList.contains("input-error")) {
+                campo.classList.remove("input-error");
+                const error = campo.parentElement.querySelector(".msg-error");
+                if (error) error.remove();
+            }
+        });
+    });
+
+    // --- Validación al enviar ---
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const ok = [
+            validarNombre(nombre),
+            validarNombre(apellido),
+            validarEmail(email),
+            validarTel(tel),
+            validarMensaje(mensaje),
+        ].every(Boolean);
+
+        if (ok) {
+            mostrarExito();
+            form.reset();
+            [nombre, apellido, email, tel, mensaje].forEach((c) => {
+                c?.classList.remove("input-ok");
             });
-        });
-
-        // --- Validación al enviar ---
-
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-
-            const ok = [
-                validarNombre(nombre),
-                validarNombre(apellido),
-                validarEmail(email),
-                validarTel(tel),
-                validarMensaje(mensaje),
-            ].every(Boolean);
-
-            if (ok) {
-                mostrarExito();
-                form.reset();
-                [nombre, apellido, email, tel, mensaje].forEach((c) => {
-                    c?.classList.remove("input-ok");
-                });
-            }
-        });
-
-        // --- Mensaje de éxito ---
-
-        function mostrarExito() {
-            let banner = document.querySelector(".form-exito");
-            if (!banner) {
-                banner = document.createElement("p");
-                banner.classList.add("form-exito");
-                banner.textContent = "✅ ¡Mensaje enviado! Me voy a contactar pronto.";
-                form.insertAdjacentElement("afterend", banner);
-            }
-            banner.style.display = "block";
-            setTimeout(() => {
-                banner.style.display = "none";
-            }, 5000);
         }
     });
+
+    // --- Mensaje de éxito ---
+
+    function mostrarExito() {
+        let banner = document.querySelector(".form-exito");
+        if (!banner) {
+            banner = document.createElement("p");
+            banner.classList.add("form-exito");
+            banner.textContent = "✅ ¡Mensaje enviado! Me voy a contactar pronto.";
+            form.insertAdjacentElement("afterend", banner);
+        }
+        banner.style.display = "block";
+        setTimeout(() => {
+            banner.style.display = "none";
+        }, 5000);
+    }
+});
 
 /* =========================================
    LÓGICA DEL MENÚ HAMBURGUESA (Adaptado para enlaces internos)
@@ -453,19 +453,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Le agregamos el evento de 'click' a cada imagen
         imagenesGaleria.forEach(img => {
-            img.addEventListener("click", function() {
-                modal.style.display = "flex"; 
-                imgModal.src = this.src; 
+            img.addEventListener("click", function () {
+                modal.style.display = "flex";
+                imgModal.src = this.src;
             });
         });
 
         // Cerrar el modal al hacer clic en la "X"
-        botonCerrar.addEventListener("click", function() {
+        botonCerrar.addEventListener("click", function () {
             modal.style.display = "none";
         });
 
         // Cerrar el modal al hacer clic en el fondo oscuro
-        window.addEventListener("click", function(event) {
+        window.addEventListener("click", function (event) {
             if (event.target === modal) {
                 modal.style.display = "none";
             }
@@ -474,7 +474,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Función original de saludo (Debe estar en el scope global para ser llamada desde onclick)
-window.cambiarSaludo = function() {
+window.cambiarSaludo = function () {
     const mensaje = document.getElementById('mensaje-js');
     if (mensaje) {
         mensaje.innerHTML = "¡Gracias por visitar mi perfil! Estoy disponible para nuevos proyectos.";
@@ -483,3 +483,60 @@ window.cambiarSaludo = function() {
         mensaje.style.marginTop = "10px";
     }
 };
+
+/* =========================================
+   LÓGICA PORTAFOLIO VERONICA
+========================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    if (!document.body.classList.contains("page-veronica")) return;
+
+    /* MENÚ HAMBURGUESA */
+    const boton = document.querySelector(".page-veronica .menu-toggle");
+    const menu = document.querySelector(".page-veronica nav ul");
+    const links = document.querySelectorAll(".page-veronica nav ul li a");
+
+    if (boton && menu) {
+        boton.addEventListener("click", () => {
+            menu.classList.toggle("show");
+        });
+
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                menu.classList.remove("show");
+            });
+        });
+    }
+
+    /* EFECTO FOTOS DE MASCOTAS */
+    const imagenes = document.querySelectorAll("#mi-manada .mascota img");
+
+    imagenes.forEach(img => {
+        img.addEventListener("click", () => {
+            const patita = document.createElement("span");
+            patita.textContent = "🐾";
+            patita.classList.add("patita");
+
+            patita.style.left = Math.random() * 80 + "%";
+            patita.style.top = Math.random() * 80 + "%";
+
+            img.parentElement.appendChild(patita);
+
+            setTimeout(() => {
+                patita.remove();
+            }, 1000);
+
+            const nombre = img.nextElementSibling;
+
+            img.classList.remove("latido");
+            void img.offsetWidth;
+            img.classList.add("latido");
+
+            nombre.classList.add("activo");
+
+            setTimeout(() => {
+                nombre.classList.remove("activo");
+                img.classList.remove("latido");
+            }, 1000);
+        });
+    });
+});

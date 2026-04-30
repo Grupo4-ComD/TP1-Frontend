@@ -31,8 +31,6 @@
         <nav>
             <button class="menu-toggle" id="menu-toggle">&#9776;</button>
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="bitacora.html">Bitácora</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#tarjetas">Proyectos</a></li>
                 <li><a href="#habilidades">Habilidades</a></li>
@@ -208,60 +206,8 @@
         </main>
     </div>
 
-    <script>
-        /*MENÚ HAMBURGUESA*/
-        const boton = document.querySelector(".page-veronica .menu-toggle");
-        const menu = document.querySelector(".page-veronica nav ul");
-        const links = document.querySelectorAll(".page-veronica nav ul li a");
-
-        boton.addEventListener("click", () => {
-            menu.classList.toggle("show");
-        });
-
-        links.forEach(link => {
-            link.addEventListener("click", () => {
-                menu.classList.remove("show");
-            });
-        });
-
-        /*EFECTO FOTOS DE MASCOTAS*/
-        const imagenes = document.querySelectorAll("#mi-manada .mascota img");
-        imagenes.forEach(img => {
-            img.addEventListener("click", () => {
-                const patita = document.createElement("span");
-                patita.textContent = "🐾";
-
-                patita.classList.add("patita");
-
-                // posición aleatoria dentro de la imagen
-                patita.style.left = Math.random() * 80 + "%";
-                patita.style.top = Math.random() * 80 + "%";
-
-                img.parentElement.appendChild(patita);
-
-                // eliminar después de la animación
-                setTimeout(() => {
-                    patita.remove();
-                }, 1000);
-
-                const nombre = img.nextElementSibling;
-
-                // Latido
-                img.classList.remove("latido");
-                void img.offsetWidth;
-                img.classList.add("latido");
-
-                // Activar color
-                nombre.classList.add("activo");
-
-                // Sacarlo después de un tiempo
-                setTimeout(() => {
-                    nombre.classList.remove("activo");
-                    img.classList.remove("latido");
-                }, 1000); // mismo tiempo que la animación
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
+    
 </body>
 
 </html>
