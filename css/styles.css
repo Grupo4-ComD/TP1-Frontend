@@ -624,6 +624,10 @@ body.page-veronica footer .social-icons a:hover {
         font-size: 1rem;
     }
 
+    body.page-veronica section {
+        scroll-margin-top: 90px;
+    }
+
     body.page-veronica .sobre-mi-contenido {
         flex-direction: column;
         text-align: justify;
