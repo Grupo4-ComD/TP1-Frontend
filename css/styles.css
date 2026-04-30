@@ -788,7 +788,6 @@ body.page-mailen .flex-tarjetas-discos {
     padding: 20px;
 }
 
-body.page-mailen #discos h2,
 body.page-mailen #discos .tarjeta p {
     text-align: center;
 }
@@ -947,7 +946,7 @@ body.page-mailen section {
     scroll-margin-top: 60px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     body.page-mailen nav ul {
         display: none;
         flex-direction: column;
@@ -966,7 +965,7 @@ body.page-mailen section {
         transition: color 0.3s ease;
     }
 
-     
+    
     body.page-mailen .nav-hamburguesa:hover {
     color: #9057b9;
 }
@@ -978,6 +977,11 @@ body.page-mailen section {
     body.page-mailen nav ul li a {
         display: block;
         padding: 0.5rem 0;
+    }
+
+     body.page-mailen h2 {
+        margin-left: 0;
+        text-align: center;
     }
 
     body.page-mailen .tabla-habilidades th,
@@ -995,10 +999,30 @@ body.page-mailen section {
         flex-wrap: wrap;
     }
 
-    body.page-mailen #contacto h2 {
-        margin-left: 0;
+}
+
+@media (max-width: 400px) {
+    body.page-mailen h1 {
+        font-size: 1.5rem;
     }
 
+    body.page-mailen h2 {
+        font-size: 1.3rem;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    body.page-mailen .tarjeta p {
+        font-size: 0.85rem;
+    }
+
+    body.page-mailen .tarjeta h3 {
+        font-size: 0.85rem;
+    }
+
+    body.page-mailen nav ul li a {
+        font-size: 1rem;
+    }
 }
 
 /*================================
