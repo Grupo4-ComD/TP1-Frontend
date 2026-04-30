@@ -2779,3 +2779,22 @@ body.dark-mode footer {
     }
 }
 
+/* =========================================
+   BREAKPOINT OBLIGATORIO (Móviles Pequeños)
+========================================= */
+@media (max-width: 400px) {
+    /* Ajustes menores para pantallas muy chicas */
+    .site-header {
+        padding: 0.5rem 1rem;
+    }
+    .section h2 {
+        font-size: 1.6rem;
+    }
+    .team-cards .card {
+        padding: 15px 10px;
+    }
+    .team-presentation {
+        padding: 15px;
+    }
+}
+
