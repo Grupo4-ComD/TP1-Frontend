@@ -437,3 +437,49 @@ document.addEventListener('DOMContentLoaded', () => {
         deactivateAll();
     });
 });
+
+/* =========================================
+   LÓGICA DEL PORTAFOLIO DE GUILLERMO
+========================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    // Lógica del Lightbox (Ampliar imágenes)
+    const modal = document.getElementById("modalImagen");
+    const imgModal = document.getElementById("imgAmpliada");
+    const botonCerrar = document.querySelector(".cerrar-modal");
+
+    if (modal && imgModal && botonCerrar) {
+        // Seleccionamos todas las imágenes dentro de las tarjetas
+        const imagenesGaleria = document.querySelectorAll(".tarjeta img, .pelicula-card img");
+
+        // Le agregamos el evento de 'click' a cada imagen
+        imagenesGaleria.forEach(img => {
+            img.addEventListener("click", function() {
+                modal.style.display = "flex"; 
+                imgModal.src = this.src; 
+            });
+        });
+
+        // Cerrar el modal al hacer clic en la "X"
+        botonCerrar.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+
+        // Cerrar el modal al hacer clic en el fondo oscuro
+        window.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
+});
+
+// Función original de saludo (Debe estar en el scope global para ser llamada desde onclick)
+window.cambiarSaludo = function() {
+    const mensaje = document.getElementById('mensaje-js');
+    if (mensaje) {
+        mensaje.innerHTML = "¡Gracias por visitar mi perfil! Estoy disponible para nuevos proyectos.";
+        mensaje.style.color = "#2c3e50";
+        mensaje.style.fontWeight = "bold";
+        mensaje.style.marginTop = "10px";
+    }
+};

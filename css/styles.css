@@ -2798,3 +2798,50 @@ body.dark-mode footer {
     }
 }
 
+/* =======================================================
+   ESTILOS DE GUILLERMO (BOTÓN VOLVER A INICIO)
+======================================================== */
+.back-home-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 90;
+    background-color: var(--secondary-color, #6366f1);
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+.back-home-btn:hover {
+    transform: translateY(-3px);
+    background-color: var(--primary-color, #0f172a);
+}
+@media (max-width: 768px) {
+    .back-home-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 12px;
+        border-radius: 50%;
+    }
+    .back-home-btn .text {
+        display: none;
+    }
+}
+/* Da un margen al final de TU página para que el botón no tape footer */
+body.page-guillermo {
+    padding-bottom: 80px;
+}
+
+/* =======================================================
+   CORRECCIÓN GLOBAL: IMÁGENES NO DEFORMADAS
+======================================================== */
+.tarjeta img,
+.pelicula-card img {
+    object-fit: cover;
+    width: 100%;
+}
