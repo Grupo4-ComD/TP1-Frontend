@@ -65,9 +65,10 @@ Se implementaron funciones en JavaScript puro para mejorar la experiencia de usu
 ![Vista del efecto](img/discos%20fav%20do%20it.png)
 
 
-- **Función en mailen.html:** En la sección **Contacto**, se implementó una funcionalidad con JS que permite, al rellenar los campos del formulario validar si los mismos estan correctos, en caso afirmativo el recuadro se pondrá en verde, en caso negativo el recuadro se pondrá en rojo. A demás, se implemento la funcionalidad de enviar un mensaje de confirmación al enviar el formulario con la leyenda: "¡Mensaje enviado! Me voy a contactar pronto".
+- **Función en mailen.html:** En la sección **Contacto**, se implementó una funcionalidad con JS que permite, al rellenar los campos del formulario validar si los mismos estan correctos, en caso afirmativo el recuadro se pondrá en verde, en caso negativo el recuadro se pondrá en rojo. A demás, se implementó la funcionalidad de enviar un mensaje de confirmación al enviar el formulario con la leyenda: "¡Mensaje enviado! Me voy a contactar pronto".
 
 >**Capturas de pantalla:
+>
 ![Vista del efecto](img/js-mai-campos.png)
 ![Vista del efecto](img/js-mai-validacion.png)
 
