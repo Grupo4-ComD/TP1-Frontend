@@ -2339,7 +2339,7 @@ body.dark-mode .roadmap-walker {
 }
 
 .roadmap-walker.is-moving .walker-icon {
-    animation: roadmap-walker-bob 260ms ease-in-out infinite;
+    animation: roadmap-walker-bob 800ms ease-in-out infinite;
 }
 
 .roadmap-walker .walker-leg,
