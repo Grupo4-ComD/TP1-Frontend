@@ -65,9 +65,15 @@ Se implementaron funciones en JavaScript puro para mejorar la experiencia de usu
 ![Vista del efecto](img/discos%20fav%20do%20it.png)
 
 
+- **Función en mailen.html:** En la sección **Contacto**, se implementó una funcionalidad con JS que permite, al rellenar los campos del formulario validar si los mismos estan correctos, en caso afirmativo el recuadro se pondrá en verde, en caso negativo el recuadro se pondrá en rojo. A demás, se implemento la funcionalidad de enviar un mensaje de confirmación al enviar el formulario con la leyenda: "¡Mensaje enviado! Me voy a contactar pronto".
+
+>**Capturas de pantalla:
+![Vista del efecto](img/js-mai-campos.png)
+![Vista del efecto](img/js-mai-validacion.png)
+
 
 ## Uso de Inteligencia Artificial (IA)
-- **Herramientas utilizadas:** Google Gemini. NotebookLM
+- **Herramientas utilizadas:** Google Gemini. NotebookLM.
 - **Uso en Contenido y Código:** - **Refactorización CSS:** Se utilizó IA para analizar hojas de estilo distintas (a raíz de la unificación de perfiles) y unificarlas en un único archivo `styles.css`. La IA ayudó a identificar clases duplicadas, agrupar selectores de variables globales y estandarizar el diseño responsivo (Breakpoints de 900px y 1200px requeridos por el TP).
   - **Lógica JavaScript:** Gemini asistió en la creación de la lógica para el Modal Lightbox, sugiriendo la mejor forma de iterar sobre una colección de imágenes con `querySelectorAll` y aplicar *Event Listeners* sin necesidad de usar librerías externas.
 - **Generación de Imágenes:** *[Se utilizó Gemini PRO para la generación de los avatares de los perfiles]*.
