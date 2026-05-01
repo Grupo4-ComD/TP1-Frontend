@@ -540,3 +540,71 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (!document.body.classList.contains('page-bitacora')) return;
+
+    const roadmap = document.querySelector('.roadmap');
+    if (!roadmap) return;
+
+    const steps = Array.from(roadmap.querySelectorAll('.roadmap-step'));
+    if (!steps.length) return;
+
+    const markerOffset = 23;
+    const walker = document.createElement('div');
+    walker.className = 'roadmap-walker';
+    walker.setAttribute('aria-hidden', 'true');
+    roadmap.appendChild(walker);
+
+    let rafId = 0;
+    let movingTimer = 0;
+
+    const setWalkerToStep = (step) => {
+        if (!step) return;
+        const top = step.offsetTop + markerOffset;
+        walker.style.top = `${top}px`;
+        walker.classList.add('is-moving');
+        if (movingTimer) window.clearTimeout(movingTimer);
+        movingTimer = window.setTimeout(() => {
+            walker.classList.remove('is-moving');
+        }, 520);
+    };
+
+    const computeActiveStep = () => {
+        const focusTarget = document.activeElement instanceof Element ? document.activeElement.closest('.roadmap-step') : null;
+        if (focusTarget) return focusTarget;
+
+        const targetY = window.innerHeight * 0.35;
+        let bestStep = null;
+        let bestDist = Number.POSITIVE_INFINITY;
+
+        steps.forEach((step) => {
+            const rect = step.getBoundingClientRect();
+            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+            const markerY = rect.top + markerOffset;
+            const dist = Math.abs(markerY - targetY);
+            if (dist < bestDist) {
+                bestDist = dist;
+                bestStep = step;
+            }
+        });
+
+        return bestStep ?? steps[0] ?? null;
+    };
+
+    const requestUpdate = () => {
+        if (rafId) return;
+        rafId = window.requestAnimationFrame(() => {
+            rafId = 0;
+            setWalkerToStep(computeActiveStep());
+        });
+    };
+
+    setWalkerToStep(steps[0]);
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+    roadmap.addEventListener('toggle', requestUpdate, true);
+    roadmap.addEventListener('focusin', requestUpdate);
+    requestUpdate();
+});
