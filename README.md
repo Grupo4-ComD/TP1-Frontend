@@ -48,11 +48,12 @@ Se respetó el requisito de mantener los archivos HTML en la raíz, separando l�
 ## JavaScript y Funcionalidades Dinámicas
 Se implementaron funciones en JavaScript puro para mejorar la experiencia de usuario y cumplir con el requisito de interactividad.
 
-- **Función en Portada (`index.html` y `bitacora.html`):** Implementamos un "Modo Oscuro" (Dark Mode) global. Al hacer clic en el botón de la cabecera, una función de JS intercala una clase `.dark-mode` en la etiqueta `<body>`, modificando instantáneamente el fondo, los textos y el color de las tarjetas a través de selectores CSS específicos.
+- **Función en Portada (`index.html` y `bitacora.html`):** Implementamos un "Modo Oscuro" (Dark Mode) global. Al hacer clic en el botón de la cabecera, una función de JS intercala una clase `.dark-mode` en la etiqueta `<body>`, modificando instantáneamente el fondo, los textos y el color de las tarjetas a través de selectores CSS específicos. Además, al hacer clic sobre el logo del grupo “DeveloPet Friendly”, ubicado en la esquina superior izquierda de la página principal, se activa un efecto visual desarrollado en JavaScript que genera una “lluvia” de huellas sobre la pantalla. Este efecto consiste en la creación dinámica de múltiples elementos que simulan patitas, las cuales caen de forma aleatoria con distintas posiciones, tamaños y velocidades, aportando un componente interactivo y lúdico a la interfaz.
 
 >**Capturas de pantalla: 
 ![Captura del Modo Oscuro activado](img/Captura-oscura.jpg)
 ![Captura del Modal Lightbox ](img/Captura-clara.jpg)
+![Captura de Paw Rain ](img/efecto-paw-rain.jpg)
 
 - **Función en veronica.html:** En la sección **Mi Manada**, se implementó una funcionalidad con JS que permite, al hacer clic sobre las imágenes de las mascotas, ampliar la fotografía seleccionada, modificar su borde visualmente y activar una animación decorativa de una patita que aparece desde el punto del clic.
 
