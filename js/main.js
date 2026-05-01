@@ -540,3 +540,93 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (!document.body.classList.contains('page-bitacora')) return;
+
+    const roadmap = document.querySelector('.roadmap');
+    if (!roadmap) return;
+
+    const steps = Array.from(roadmap.querySelectorAll('.roadmap-step'));
+    if (!steps.length) return;
+
+    const markerOffset = 23;
+    const walker = document.createElement('div');
+    walker.className = 'roadmap-walker';
+    walker.setAttribute('aria-hidden', 'true');
+    walker.innerHTML = `<svg class="walker-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"><circle cx="22" cy="10" r="6" fill="currentColor" stroke="none"></circle><path d="M22 18 L22 34"></path><g class="walker-arm walker-arm--back"><path d="M22 22 L12 28"></path></g><g class="walker-arm walker-arm--front"><path d="M22 22 L34 26"></path></g><g class="walker-leg walker-leg--back"><path d="M22 34 L14 52"></path><path d="M14 52 L10 52"></path></g><g class="walker-leg walker-leg--front"><path d="M22 34 L30 54"></path><path d="M30 54 L34 54"></path></g></svg>`;
+    roadmap.appendChild(walker);
+
+    let activeStep = steps[0];
+    let animationId = 0;
+    let movingTimer = 0;
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false;
+
+    const getTopForStep = (step) => step.offsetTop + markerOffset;
+
+    const setWalkerTopInstant = (step) => {
+        walker.style.top = `${getTopForStep(step)}px`;
+        walker.style.setProperty('--walker-nudge', '0px');
+    };
+
+    const animateWalkerToStep = (step) => {
+        if (!step) return;
+        if (prefersReducedMotion) {
+            activeStep = step;
+            setWalkerTopInstant(step);
+            return;
+        }
+
+        if (animationId) {
+            window.cancelAnimationFrame(animationId);
+            animationId = 0;
+        }
+
+        const fromTop = Number.parseFloat(walker.style.top) || getTopForStep(activeStep);
+        const toTop = getTopForStep(step);
+        const distance = Math.abs(toTop - fromTop);
+        const duration = Math.max(520, Math.min(1200, distance * 2.2));
+        const start = window.performance.now();
+
+        walker.classList.add('is-moving');
+        if (movingTimer) window.clearTimeout(movingTimer);
+
+        const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+        const tick = (now) => {
+            const t = Math.min(1, (now - start) / duration);
+            const eased = easeInOutCubic(t);
+            const currentTop = fromTop + (toTop - fromTop) * eased;
+
+            walker.style.top = `${currentTop}px`;
+            walker.style.setProperty('--walker-nudge', `${(Math.sin(now / 85) * 2.2).toFixed(2)}px`);
+
+            if (t < 1) {
+                animationId = window.requestAnimationFrame(tick);
+                return;
+            }
+
+            animationId = 0;
+            activeStep = step;
+            walker.style.top = `${toTop}px`;
+            walker.style.setProperty('--walker-nudge', '0px');
+            movingTimer = window.setTimeout(() => {
+                walker.classList.remove('is-moving');
+            }, 120);
+        };
+
+        animationId = window.requestAnimationFrame(tick);
+    };
+
+    setWalkerTopInstant(activeStep);
+
+    steps.forEach((step) => {
+        step.addEventListener('toggle', () => {
+            if (step.open) animateWalkerToStep(step);
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        setWalkerTopInstant(activeStep);
+    });
+});
