@@ -762,7 +762,7 @@ body.page-mailen #sobre-mi {
 body.page-mailen h2 {
     font-size: 2rem;
     color: #9057b9;
-    margin-left: 3rem;
+    margin-left: 2rem;
     margin-bottom: 1rem;
 }
 
@@ -925,11 +925,13 @@ body.page-mailen footer {
 body.page-mailen .input-error {
     border: 2px solid #e74c3c;
     background-color: rgba(231, 76, 60, 0.08);
+    color: #cfe8ff;
 }
 
 body.page-mailen .input-ok {
     border: 2px solid #27ae60;
     background-color: rgba(39, 174, 96, 0.08);
+    color: #cfe8ff;
 }
 
 body.page-mailen .msg-error {
@@ -950,7 +952,7 @@ body.page-mailen section {
     scroll-margin-top: 60px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     body.page-mailen nav ul {
         display: none;
         flex-direction: column;
