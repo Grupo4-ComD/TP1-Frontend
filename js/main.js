@@ -556,55 +556,70 @@ document.addEventListener('DOMContentLoaded', () => {
     walker.setAttribute('aria-hidden', 'true');
     roadmap.appendChild(walker);
 
-    let rafId = 0;
+    let activeStep = steps[0];
+    let animationId = 0;
     let movingTimer = 0;
 
-    const setWalkerToStep = (step) => {
+    const getTopForStep = (step) => step.offsetTop + markerOffset;
+
+    const setWalkerTopInstant = (step) => {
+        walker.style.top = `${getTopForStep(step)}px`;
+        walker.style.setProperty('--walker-nudge', '0px');
+    };
+
+    const animateWalkerToStep = (step) => {
         if (!step) return;
-        const top = step.offsetTop + markerOffset;
-        walker.style.top = `${top}px`;
+
+        if (animationId) {
+            window.cancelAnimationFrame(animationId);
+            animationId = 0;
+        }
+
+        const fromTop = Number.parseFloat(walker.style.top) || getTopForStep(activeStep);
+        const toTop = getTopForStep(step);
+        const distance = Math.abs(toTop - fromTop);
+        const duration = Math.max(520, Math.min(1200, distance * 2.2));
+        const start = window.performance.now();
+
         walker.classList.add('is-moving');
         if (movingTimer) window.clearTimeout(movingTimer);
-        movingTimer = window.setTimeout(() => {
-            walker.classList.remove('is-moving');
-        }, 520);
-    };
 
-    const computeActiveStep = () => {
-        const focusTarget = document.activeElement instanceof Element ? document.activeElement.closest('.roadmap-step') : null;
-        if (focusTarget) return focusTarget;
+        const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
-        const targetY = window.innerHeight * 0.35;
-        let bestStep = null;
-        let bestDist = Number.POSITIVE_INFINITY;
+        const tick = (now) => {
+            const t = Math.min(1, (now - start) / duration);
+            const eased = easeInOutCubic(t);
+            const currentTop = fromTop + (toTop - fromTop) * eased;
 
-        steps.forEach((step) => {
-            const rect = step.getBoundingClientRect();
-            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-            const markerY = rect.top + markerOffset;
-            const dist = Math.abs(markerY - targetY);
-            if (dist < bestDist) {
-                bestDist = dist;
-                bestStep = step;
+            walker.style.top = `${currentTop}px`;
+            walker.style.setProperty('--walker-nudge', `${(Math.sin(now / 85) * 2.2).toFixed(2)}px`);
+
+            if (t < 1) {
+                animationId = window.requestAnimationFrame(tick);
+                return;
             }
-        });
 
-        return bestStep ?? steps[0] ?? null;
+            animationId = 0;
+            activeStep = step;
+            walker.style.top = `${toTop}px`;
+            walker.style.setProperty('--walker-nudge', '0px');
+            movingTimer = window.setTimeout(() => {
+                walker.classList.remove('is-moving');
+            }, 120);
+        };
+
+        animationId = window.requestAnimationFrame(tick);
     };
 
-    const requestUpdate = () => {
-        if (rafId) return;
-        rafId = window.requestAnimationFrame(() => {
-            rafId = 0;
-            setWalkerToStep(computeActiveStep());
+    setWalkerTopInstant(activeStep);
+
+    steps.forEach((step) => {
+        step.addEventListener('toggle', () => {
+            if (step.open) animateWalkerToStep(step);
         });
-    };
+    });
 
-    setWalkerToStep(steps[0]);
-
-    window.addEventListener('scroll', requestUpdate, { passive: true });
-    window.addEventListener('resize', requestUpdate);
-    roadmap.addEventListener('toggle', requestUpdate, true);
-    roadmap.addEventListener('focusin', requestUpdate);
-    requestUpdate();
+    window.addEventListener('resize', () => {
+        setWalkerTopInstant(activeStep);
+    });
 });
