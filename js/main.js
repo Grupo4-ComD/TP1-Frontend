@@ -554,11 +554,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const walker = document.createElement('div');
     walker.className = 'roadmap-walker';
     walker.setAttribute('aria-hidden', 'true');
+    walker.innerHTML = `<svg class="walker-icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"><circle cx="22" cy="10" r="6" fill="currentColor" stroke="none"></circle><path d="M22 18 L22 34"></path><g class="walker-arm walker-arm--back"><path d="M22 22 L12 28"></path></g><g class="walker-arm walker-arm--front"><path d="M22 22 L34 26"></path></g><g class="walker-leg walker-leg--back"><path d="M22 34 L14 52"></path><path d="M14 52 L10 52"></path></g><g class="walker-leg walker-leg--front"><path d="M22 34 L30 54"></path><path d="M30 54 L34 54"></path></g></svg>`;
     roadmap.appendChild(walker);
 
     let activeStep = steps[0];
     let animationId = 0;
     let movingTimer = 0;
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false;
 
     const getTopForStep = (step) => step.offsetTop + markerOffset;
 
@@ -569,6 +571,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const animateWalkerToStep = (step) => {
         if (!step) return;
+        if (prefersReducedMotion) {
+            activeStep = step;
+            setWalkerTopInstant(step);
+            return;
+        }
 
         if (animationId) {
             window.cancelAnimationFrame(animationId);

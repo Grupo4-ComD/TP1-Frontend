@@ -2329,27 +2329,41 @@ body.dark-mode .roadmap-walker {
     color: rgba(231, 234, 243, 0.92);
 }
 
-.roadmap-walker::before {
-    content: "";
+.roadmap-walker .walker-icon {
     width: 26px;
     height: 26px;
     display: block;
-    background-color: currentColor;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Ccircle%20cx%3D%2722%27%20cy%3D%2710%27%20r%3D%276%27/%3E%3Cpath%20d%3D%27M27%2018c-5%200-9%203-10%208l-4%2012c-1%203%201%206%204%206h6l-4%2014c-1%204%202%208%206%208%202%200%204-1%205-3l4-14%209%209c2%202%206%201%207-2l4-14c1-4-2-8-6-8H34l-7-6z%27/%3E%3Cpath%20d%3D%27M16%2032l10%203%206-10%27/%3E%3C/svg%3E");
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    -webkit-mask-size: contain;
-    mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Ccircle%20cx%3D%2722%27%20cy%3D%2710%27%20r%3D%276%27/%3E%3Cpath%20d%3D%27M27%2018c-5%200-9%203-10%208l-4%2012c-1%203%201%206%204%206h6l-4%2014c-1%204%202%208%206%208%202%200%204-1%205-3l4-14%209%209c2%202%206%201%207-2l4-14c1-4-2-8-6-8H34l-7-6z%27/%3E%3Cpath%20d%3D%27M16%2032l10%203%206-10%27/%3E%3C/svg%3E");
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: contain;
-    transform-origin: 50% 85%;
     filter: drop-shadow(0 10px 18px rgba(15, 23, 42, 0.18));
+    transform-origin: 50% 85%;
     animation: roadmap-walker-idle 1200ms ease-in-out infinite;
 }
 
-.roadmap-walker.is-moving::before {
-    animation: roadmap-walker-walk 260ms ease-in-out infinite;
+.roadmap-walker.is-moving .walker-icon {
+    animation: roadmap-walker-bob 260ms ease-in-out infinite;
+}
+
+.roadmap-walker .walker-leg,
+.roadmap-walker .walker-arm {
+    transform-box: fill-box;
+    transform-origin: 50% 0%;
+}
+
+.roadmap-walker.is-moving .walker-leg--front {
+    animation: roadmap-walker-leg 260ms ease-in-out infinite;
+}
+
+.roadmap-walker.is-moving .walker-leg--back {
+    animation: roadmap-walker-leg 260ms ease-in-out infinite;
+    animation-delay: -130ms;
+}
+
+.roadmap-walker.is-moving .walker-arm--front {
+    animation: roadmap-walker-arm 260ms ease-in-out infinite;
+    animation-delay: -130ms;
+}
+
+.roadmap-walker.is-moving .walker-arm--back {
+    animation: roadmap-walker-arm 260ms ease-in-out infinite;
 }
 
 @keyframes roadmap-walker-idle {
@@ -2363,14 +2377,36 @@ body.dark-mode .roadmap-walker {
     }
 }
 
-@keyframes roadmap-walker-walk {
+@keyframes roadmap-walker-bob {
     0%,
     100% {
-        transform: translateY(0) rotate(-10deg);
+        transform: translateY(0) rotate(-6deg);
     }
 
     50% {
-        transform: translateY(-2px) rotate(10deg);
+        transform: translateY(-2px) rotate(6deg);
+    }
+}
+
+@keyframes roadmap-walker-leg {
+    0%,
+    100% {
+        transform: rotate(18deg);
+    }
+
+    50% {
+        transform: rotate(-18deg);
+    }
+}
+
+@keyframes roadmap-walker-arm {
+    0%,
+    100% {
+        transform: rotate(-14deg);
+    }
+
+    50% {
+        transform: rotate(14deg);
     }
 }
 
@@ -2496,12 +2532,10 @@ body.dark-mode .roadmap-content {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .roadmap-walker {
-        transition: none;
-    }
-
-    .roadmap-walker::before,
-    .roadmap-walker.is-moving::before {
+    .roadmap-walker .walker-icon,
+    .roadmap-walker.is-moving .walker-icon,
+    .roadmap-walker.is-moving .walker-leg,
+    .roadmap-walker.is-moving .walker-arm {
         animation: none;
     }
 }
