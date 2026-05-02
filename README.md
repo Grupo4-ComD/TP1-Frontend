@@ -43,7 +43,10 @@ Se respetó el requisito de mantener los archivos HTML en la raíz, separando l�
   - `Ubuntu` (Principal, moderna, limpia y muy legible): https://fonts.google.com/specimen/Ubuntu
   - `Delius` (Amigable, manuscrita y relajada, ideal para un estilo cálido y cercano): https://fonts.google.com/specimen/Delius
   - `EB Garamond` (Elegante, clásica y sofisticada, ideal para textos con estilo editorial): https://fonts.google.com/specimen/EB+Garamond
-- **Privacidad y Avatares:** Se utilizaron avatares ilustrativos y fotos representativas de mascotas/hobbies para preservar la identidad personal en un repositorio público, tal como lo sugiere la consigna.
+
+- **Iconografía y Privacidad:**
+Se utilizaron recursos gráficos nativos (emojis/SVGs) para acompañar la lectura de las secciones.
+Privacidad: Cumpliendo con los requerimientos del proyecto, se decidió proteger la privacidad de los integrantes utilizando avatares, fotos de mascotas e ilustraciones generadas por Inteligencia Artificial en lugar de fotografías personales reales.
 
 ## JavaScript y Funcionalidades Dinámicas
 Se implementaron funciones en JavaScript puro para mejorar la experiencia de usuario y cumplir con el requisito de interactividad.
