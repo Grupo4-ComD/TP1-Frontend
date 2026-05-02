@@ -76,8 +76,8 @@ Se implementaron funciones en JavaScript puro para mejorar la experiencia de usu
 
 >**Capturas de pantalla:
 >
-![Vista del efecto](img/proyecto1.jpg)
-![Vista del efecto](img/proyecto2.jpg)
+![Vista del efecto](img/proyectos1.jpg)
+![Vista del efecto](img/proyectos2.jpg)
 
 ## Uso de Inteligencia Artificial (IA)
 - **Herramientas utilizadas:** Google Gemini. NotebookLM.
