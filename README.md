@@ -72,6 +72,12 @@ Se implementaron funciones en JavaScript puro para mejorar la experiencia de usu
 ![Vista del efecto](img/js-mai-campos.png)
 ![Vista del efecto](img/js-mai-validacion.png)
 
+- **Función en guillermo.html:** En las secciones de Proyectos y Hobbies, se implementó una funcionalidad con JS (Modal Lightbox) que permite, al hacer clic sobre las imágenes de las tarjetas, ampliar la foto seleccionada mostrándola en el centro de la pantalla sobre un fondo oscuro superpuesto. Además, permite cerrar la vista ampliada al interactuar con el botón "X" o haciendo clic fuera de la imagen.
+
+>**Capturas de pantalla:
+>
+![Vista del efecto](img/proyecto1.jpg)
+![Vista del efecto](img/proyecto2.jpg)
 
 ## Uso de Inteligencia Artificial (IA)
 - **Herramientas utilizadas:** Google Gemini. NotebookLM.
