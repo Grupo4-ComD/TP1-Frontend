@@ -443,8 +443,8 @@ document.addEventListener('DOMContentLoaded', () => {
 ========================================= */
 document.addEventListener("DOMContentLoaded", () => {
     // Lógica del Lightbox (Ampliar imágenes)
-    const modal = document.getElementById("modalImagen");
-    const imgModal = document.getElementById("imgAmpliada");
+    const modal = document.getElementById("miModal");       
+    const imgModal = document.getElementById("imgModal");   
     const botonCerrar = document.querySelector(".cerrar-modal");
 
     if (modal && imgModal && botonCerrar) {
@@ -473,7 +473,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Función original de saludo (Debe estar en el scope global para ser llamada desde onclick)
+// Función original de saludo 
 window.cambiarSaludo = function () {
     const mensaje = document.getElementById('mensaje-js');
     if (mensaje) {
